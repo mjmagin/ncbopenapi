@@ -55,6 +55,9 @@
           }
         ],
         "responses": {
+          "403": {
+            "description": "error"
+          },
           "200": {
             "description": "success",
             "schema": {
