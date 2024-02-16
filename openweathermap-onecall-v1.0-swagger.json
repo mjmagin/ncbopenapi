@@ -10,6 +10,18 @@
   "schemes": [
     "https"
   ],
+  "security": [
+    {
+      "blocApiKey": []
+    }
+  ],
+  "securityDefinitions": {
+    "blocApiKey": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-API-Key"
+    }
+  },
   "paths": {
     "/onecall": {
       "get": {
