@@ -1,9 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Open Weather Map",
-    "version": "0.1",
-    "title": "Open Weather Map"
+    "description": "Get essential weather data, short-term and long-term forecasts and aggregated weather data is easy with the OpenWeather One Call API 3.0. ",
+    "version": "3.o",
+    "title": "**Blocklet**: Open Weather Map One Call API"
   },
   "host": "api.openweathermap.org",
   "basePath": "/data/2.5",
@@ -25,31 +25,46 @@
   "paths": {
     "/onecall": {
       "get": {
-        "description": "One Call",
+        "description": "Current and forecasts weather data",
+        "summary": "To get access to current weather, minute forecast for 1 hour, hourly forecast for 48 hours, daily forecast for 8 days and government weather alerts",
         "produces": [
           "application/json"
         ],
         "parameters": [
           {
-            "name": "appid",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "lon",
+            "description": "Latitude, decimal (-90; 90). If you need the geocoder to automatic convert city names and zip-codes to geo coordinates and the other way around, use one of our Geocoding Blocks",
             "in": "query",
-            "required": false,
+            "required": true,
             "type": "string"
           },
           {
             "name": "lat",
+            "description": "Longitude, decimal (-180; 180). If you need the geocoder to automatic convert city names and zip-codes to geo coordinates and the other way around, use one of our Geocoding Blocks",
             "in": "query",
-            "required": false,
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "exclude",
+            "description": "By using this parameter you can exclude some parts of the weather data from the API response. It should be a comma-delimited list (without spaces). Available values: current, minutely, hourly, daily, alerts",
+            "in": "query",
             "type": "string"
           },
           {
             "name": "units",
+            "description": "Units of measurement. standard, metric and imperial units are available. If you do not use the units parameter, standard units will be applied by default.",
+            "in": "query",
+            "type": "string",
+            "enum": [
+              "standard",
+              "metric",
+              "imperial"
+            ]
+          },
+          {
+            "name": "lang",
+            "description": "You can use the lang parameter to get the output in your language. See documentation for ",
             "in": "query",
             "type": "string"
           }
