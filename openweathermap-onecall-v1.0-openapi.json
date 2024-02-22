@@ -1,0 +1,356 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "**Blocklet**: Open Weather Map One Call API",
+    "description": "Get essential weather data, short-term and long-term forecasts and aggregated weather data is easy with the OpenWeather One Call API 3.0. ",
+    "version": "3.o"
+  },
+  "servers": [
+    {
+      "url": "https://api.openweathermap.org/data/2.5"
+    }
+  ],
+  "security": [
+    {
+      "blocApiKey": []
+    }
+  ],
+  "paths": {
+    "/onecall": {
+      "get": {
+        "summary": "To get access to current weather, minute forecast for 1 hour, hourly forecast for 48 hours, daily forecast for 8 days and government weather alerts",
+        "description": "Current and forecasts weather data",
+        "parameters": [
+          {
+            "name": "Cache-Control",
+            "in": "header",
+            "description": "Send a value of 'max-age=0' to ignore the cache and retrive data from the service",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lon",
+            "in": "query",
+            "description": "Latitude, decimal (-90; 90). If you need the geocoder to automatic convert city names and zip-codes to geo coordinates and the other way around, use one of our Geocoding Blocks",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Longitude, decimal (-180; 180). If you need the geocoder to automatic convert city names and zip-codes to geo coordinates and the other way around, use one of our Geocoding Blocks",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "exclude",
+            "in": "query",
+            "description": "By using this parameter you can exclude some parts of the weather data from the API response. It should be a comma-delimited list (without spaces). Available values: current, minutely, hourly, daily, alerts",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "units",
+            "in": "query",
+            "description": "Units of measurement. standard, metric and imperial units are available. If you do not use the units parameter, standard units will be applied by default.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "standard",
+                "metric",
+                "imperial"
+              ]
+            }
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "You can use the lang parameter to get the output in your language. See documentation for ",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "error",
+            "content": {}
+          },
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "type": "number"
+                    },
+                    "lon": {
+                      "type": "number"
+                    },
+                    "timezone": {
+                      "type": "string"
+                    },
+                    "current": {
+                      "type": "object",
+                      "properties": {
+                        "dt": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "sunrise": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "sunset": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "temp": {
+                          "type": "number"
+                        },
+                        "feels_like": {
+                          "type": "number"
+                        },
+                        "pressure": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "humidity": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "dew_point": {
+                          "type": "number"
+                        },
+                        "uvi": {
+                          "type": "number"
+                        },
+                        "clouds": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "wind_speed": {
+                          "type": "number"
+                        },
+                        "wind_deg": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "weather": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int32"
+                              },
+                              "main": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "icon": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "hourly": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "dt": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "temp": {
+                            "type": "number"
+                          },
+                          "feels_like": {
+                            "type": "number"
+                          },
+                          "pressure": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "humidity": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "dew_point": {
+                            "type": "number"
+                          },
+                          "clouds": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "wind_speed": {
+                            "type": "number"
+                          },
+                          "wind_deg": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "weather": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer",
+                                  "format": "int32"
+                                },
+                                "main": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "icon": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "daily": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "dt": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "sunrise": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "sunset": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "temp": {
+                            "type": "object",
+                            "properties": {
+                              "day": {
+                                "type": "number"
+                              },
+                              "min": {
+                                "type": "number"
+                              },
+                              "max": {
+                                "type": "number"
+                              },
+                              "night": {
+                                "type": "number"
+                              },
+                              "eve": {
+                                "type": "number"
+                              },
+                              "morn": {
+                                "type": "number"
+                              }
+                            }
+                          },
+                          "feels_like": {
+                            "type": "object",
+                            "properties": {
+                              "day": {
+                                "type": "number"
+                              },
+                              "night": {
+                                "type": "number"
+                              },
+                              "eve": {
+                                "type": "number"
+                              },
+                              "morn": {
+                                "type": "number"
+                              }
+                            }
+                          },
+                          "pressure": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "humidity": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "dew_point": {
+                            "type": "number"
+                          },
+                          "wind_speed": {
+                            "type": "number"
+                          },
+                          "wind_deg": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "weather": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer",
+                                  "format": "int32"
+                                },
+                                "main": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "icon": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "clouds": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "uvi": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "blocApiKey": {
+        "type": "apiKey",
+        "name": "X-API-Key",
+        "in": "header"
+      }
+    }
+  },
+  "x-original-swagger-version": "2.0"
+}
