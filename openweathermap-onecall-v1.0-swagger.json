@@ -32,6 +32,13 @@
         ],
         "parameters": [
           {
+            "name": "Cache-Control",
+            "description": "Send a value of 'max-age=0' to ignore the cache and retrive data from the service",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "lon",
             "description": "Latitude, decimal (-90; 90). If you need the geocoder to automatic convert city names and zip-codes to geo coordinates and the other way around, use one of our Geocoding Blocks",
             "in": "query",
