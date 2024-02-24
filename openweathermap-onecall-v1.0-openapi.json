@@ -28,6 +28,7 @@
         "tags": [
           "Weather"
         ],
+        "name": "Get Weather Data",
         "summary": "To get access to current weather, minute forecast for 1 hour, hourly forecast for 48 hours, daily forecast for 8 days and government weather alerts",
         "description": "Current and forecasts weather data",
         "parameters": [
