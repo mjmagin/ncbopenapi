@@ -1,13 +1,20 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.1.0",
   "info": {
-    "title": "Blocklet - Open Weather Map (OneCall) v2.5",
+    "title": "Blocklet - Open Weather Map (OneCall) v3.0",
+    "summary": "summary description",
+    "termsOfService": "terms of service description",
     "description": "<img src='https://res.cloudinary.com/duue2nnrs/image/upload/v1708079989/blocletlogo_lrgtl8.png' width='50' height='50'/> <p>Get essential weather data, short-term and long-term forecasts and aggregated weather data is easy with the OpenWeather One Call API v2.5.</p><h2>Key Benefits</h2><ul><li>Secured API key in our encrypted database</li><li>Optimise&nbsp;performance with our caching technology (300s TTL) - can be overridden as required&nbsp;</li><li>Minimise 3rd Party API costs / limits&nbsp;</li><li>Collaborate with the developers by sharing this page or use the openapi spec link above and import into postman&nbsp;</li><li>Import the openapi spec link above into popular nocode platforms such as FlutterFlow, PowerApps &nbsp;</li></ul>",
     "version": "2.5"
   },
+  "x-blocklet-description": "",
+  "externalDocs": {
+    "description": "Openweathermap Documentation",
+    "url": "https://openweathermap.org/api/one-call-3"
+  },
   "servers": [
     {
-      "url": "https://api.openweathermap.org/data/2.5"
+      "url": "https://api.openweathermap.org/data/3.0"
     }
   ],
   "security": [
@@ -81,7 +88,7 @@
           }
         ],
         "responses": {
-          "403": {
+          "500": {
             "description": "error",
             "content": {}
           },
