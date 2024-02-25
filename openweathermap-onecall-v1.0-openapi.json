@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Blocklet - Open Weather Map (OneCall) v3.0",
-    "summary": "summary description",
+    "summary": "Proxy API - Open Weather Map OneCall v3.0",
     "termsOfService": "terms of service description",
     "description": "<img src='https://res.cloudinary.com/duue2nnrs/image/upload/v1708079989/blocletlogo_lrgtl8.png' width='50' height='50'/> <p>Get essential weather data, short-term and long-term forecasts and aggregated weather data is easy with the OpenWeather One Call API v2.5.</p><h2>Key Benefits</h2><ul><li>Secured API key in our encrypted database</li><li>Optimise&nbsp;performance with our caching technology (300s TTL) - can be overridden as required&nbsp;</li><li>Minimise 3rd Party API costs / limits&nbsp;</li><li>Collaborate with the developers by sharing this page or use the openapi spec link above and import into postman&nbsp;</li><li>Import the openapi spec link above into popular nocode platforms such as FlutterFlow, PowerApps &nbsp;</li></ul>",
     "version": "2.5"
@@ -35,7 +35,8 @@
           {
             "name": "Cache-Control",
             "in": "header",
-            "description": "Send a value of 'max-age=0' to ignore the cache and retrive data from the service",
+            "summary": "Cache Control",
+            "description": "Send a value of 'max-age=0' to ignore the cache and retrieve data from the service",
             "schema": {
               "type": "string"
             }
@@ -43,6 +44,7 @@
           {
             "name": "lon",
             "in": "query",
+            "summary": "Latitude",
             "description": "Latitude, decimal (-90; 90). If you need the geocoder to automatic convert city names and zip-codes to geo coordinates and the other way around, use one of our Geocoding Blocks",
             "required": true,
             "schema": {
@@ -52,6 +54,7 @@
           {
             "name": "lat",
             "in": "query",
+            "summary": "Longitude",
             "description": "Longitude, decimal (-180; 180). If you need the geocoder to automatic convert city names and zip-codes to geo coordinates and the other way around, use one of our Geocoding Blocks",
             "required": true,
             "schema": {
@@ -61,6 +64,7 @@
           {
             "name": "exclude",
             "in": "query",
+            "summary": "Exclude",
             "description": "By using this parameter you can exclude some parts of the weather data from the API response. It should be a comma-delimited list (without spaces). Available values: current, minutely, hourly, daily, alerts",
             "schema": {
               "type": "string"
@@ -69,6 +73,7 @@
           {
             "name": "units",
             "in": "query",
+            "summary": "Units",
             "description": "Units of measurement. standard, metric and imperial units are available. If you do not use the units parameter, standard units will be applied by default.",
             "schema": {
               "type": "string",
@@ -81,6 +86,7 @@
           },
           {
             "name": "lang",
+            "summary": "Language",
             "in": "query",
             "description": "You can use the lang parameter to get the output in your language. See documentation for ",
             "schema": {
@@ -91,6 +97,10 @@
         "responses": {
           "500": {
             "description": "error",
+            "content": {}
+          },
+          "403": {
+            "description": "Unauthorised",
             "content": {}
           },
           "200": {
