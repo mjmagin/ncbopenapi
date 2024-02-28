@@ -42,6 +42,24 @@
             }
           },
           {
+            "name": "x-collection-key",
+            "in": "header",
+            "summary": "Bloclet Collection API Key",
+            "description": "Additional Collection Specific API Key",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "summary": "Authorization Header",
+            "description": "Authorization Header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "lon",
             "in": "query",
             "summary": "Latitude",
