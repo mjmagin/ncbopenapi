@@ -35,7 +35,6 @@
           {
             "name": "x-collection-key",
             "in": "header",
-            "summary": "Bloclet Collection API Key",
             "description": "Additional Collection Specific API Key",
             "schema": {
               "type": "string"
@@ -44,8 +43,7 @@
           {
             "name": "Authorization",
             "in": "header",
-            "summary": "Use token from a Bloclet authentication Bloc",
-            "description": "Authorization Header",
+            "description": "Use token from a Bloclet authentication Bloc",
             "schema": {
               "type": "string"
             }
@@ -53,7 +51,6 @@
           {
             "name": "lon",
             "in": "query",
-            "summary": "Latitude",
             "description": "Latitude, decimal (-90; 90). If you need the geocoder to automatic convert city names and zip-codes to geo coordinates and the other way around, use one of our Geocoding Blocks",
             "required": true,
             "schema": {
@@ -63,7 +60,6 @@
           {
             "name": "lat",
             "in": "query",
-            "summary": "Longitude",
             "description": "Longitude, decimal (-180; 180). If you need the geocoder to automatic convert city names and zip-codes to geo coordinates and the other way around, use one of our Geocoding Blocks",
             "required": true,
             "schema": {
@@ -73,7 +69,6 @@
           {
             "name": "exclude",
             "in": "query",
-            "summary": "Exclude",
             "description": "By using this parameter you can exclude some parts of the weather data from the API response. It should be a comma-delimited list (without spaces). Available values: current, minutely, hourly, daily, alerts",
             "schema": {
               "type": "string"
@@ -82,7 +77,6 @@
           {
             "name": "units",
             "in": "query",
-            "summary": "Units",
             "description": "Units of measurement. standard, metric and imperial units are available. If you do not use the units parameter, standard units will be applied by default.",
             "schema": {
               "type": "string",
@@ -95,7 +89,6 @@
           },
           {
             "name": "lang",
-            "summary": "Language",
             "in": "query",
             "description": "You can use the lang parameter to get the output in your language. See documentation for ",
             "schema": {
