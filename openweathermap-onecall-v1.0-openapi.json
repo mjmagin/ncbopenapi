@@ -4,8 +4,8 @@
     "title": "Blocklet - Open Weather Map (OneCall) v3.0",
     "summary": "Proxy API - Open Weather Map OneCall v3.0",
     "termsOfService": "terms of service description",
-    "description": "<img src='https://res.cloudinary.com/duue2nnrs/image/upload/v1708079989/blocletlogo_lrgtl8.png' width='50' height='50'/> <p>Get essential weather data, short-term and long-term forecasts and aggregated weather data is easy with the OpenWeather One Call API v2.5.</p><h2>Key Benefits</h2><ul><li>Secured API key in our encrypted database</li><li>Optimise&nbsp;performance with our caching technology (300s TTL) - can be overridden as required&nbsp;</li><li>Minimise 3rd Party API costs / limits&nbsp;</li><li>Collaborate with the developers by sharing this page or use the openapi spec link above and import into postman&nbsp;</li><li>Import the openapi spec link above into popular nocode platforms such as FlutterFlow, PowerApps &nbsp;</li></ul>",
-    "version": "2.5"
+    "description": "Get essential weather data, short-term and long-term forecasts and aggregated weather data is easy with the OpenWeather One Call API v3.0.",
+    "version": "3.0"
   },
   "x-blocklet-description": "",
   "externalDocs": {
@@ -33,15 +33,6 @@
         "description": "Current and forecasts weather data",
         "parameters": [
           {
-            "name": "Cache-Control",
-            "in": "header",
-            "summary": "Cache Control",
-            "description": "Send a value of 'max-age=0' to ignore the cache and retrieve data from the service",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "x-collection-key",
             "in": "header",
             "summary": "Bloclet Collection API Key",
@@ -53,7 +44,7 @@
           {
             "name": "Authorization",
             "in": "header",
-            "summary": "Authorization Header",
+            "summary": "Use token from a Bloclet authentication Bloc",
             "description": "Authorization Header",
             "schema": {
               "type": "string"
