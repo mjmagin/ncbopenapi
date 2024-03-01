@@ -121,20 +121,14 @@
                     "timezone": {
                       "type": "string"
                     },
+                    "timezone_offset": {
+                      "type": "number"
+                    },
                     "current": {
                       "type": "object",
                       "properties": {
                         "dt": {
-                          "type": "integer",
-                          "format": "int32"
-                        },
-                        "sunrise": {
-                          "type": "integer",
-                          "format": "int32"
-                        },
-                        "sunset": {
-                          "type": "integer",
-                          "format": "int32"
+                          "type": "number"
                         },
                         "temp": {
                           "type": "number"
@@ -143,12 +137,10 @@
                           "type": "number"
                         },
                         "pressure": {
-                          "type": "integer",
-                          "format": "int32"
+                          "type": "number"
                         },
                         "humidity": {
-                          "type": "integer",
-                          "format": "int32"
+                          "type": "number"
                         },
                         "dew_point": {
                           "type": "number"
@@ -157,15 +149,19 @@
                           "type": "number"
                         },
                         "clouds": {
-                          "type": "integer",
-                          "format": "int32"
+                          "type": "number"
+                        },
+                        "visibility": {
+                          "type": "number"
                         },
                         "wind_speed": {
                           "type": "number"
                         },
                         "wind_deg": {
-                          "type": "integer",
-                          "format": "int32"
+                          "type": "number"
+                        },
+                        "wind_gust": {
+                          "type": "number"
                         },
                         "weather": {
                           "type": "array",
@@ -173,8 +169,7 @@
                             "type": "object",
                             "properties": {
                               "id": {
-                                "type": "integer",
-                                "format": "int32"
+                                "type": "number"
                               },
                               "main": {
                                 "type": "string"
@@ -196,8 +191,7 @@
                         "type": "object",
                         "properties": {
                           "dt": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
                           },
                           "temp": {
                             "type": "number"
@@ -206,26 +200,31 @@
                             "type": "number"
                           },
                           "pressure": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
                           },
                           "humidity": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
                           },
                           "dew_point": {
                             "type": "number"
                           },
+                          "uvi": {
+                            "type": "number"
+                          },
                           "clouds": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
+                          },
+                          "visibility": {
+                            "type": "number"
                           },
                           "wind_speed": {
                             "type": "number"
                           },
                           "wind_deg": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
+                          },
+                          "wind_gust": {
+                            "type": "number"
                           },
                           "weather": {
                             "type": "array",
@@ -233,8 +232,7 @@
                               "type": "object",
                               "properties": {
                                 "id": {
-                                  "type": "integer",
-                                  "format": "int32"
+                                  "type": "number"
                                 },
                                 "main": {
                                   "type": "string"
@@ -247,6 +245,9 @@
                                 }
                               }
                             }
+                          },
+                          "pop": {
+                            "type": "number"
                           }
                         }
                       }
@@ -257,16 +258,25 @@
                         "type": "object",
                         "properties": {
                           "dt": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
                           },
                           "sunrise": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
                           },
                           "sunset": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
+                          },
+                          "moonrise": {
+                            "type": "number"
+                          },
+                          "moonset": {
+                            "type": "number"
+                          },
+                          "moon_phase": {
+                            "type": "number"
+                          },
+                          "summary": {
+                            "type": "string"
                           },
                           "temp": {
                             "type": "object",
@@ -309,12 +319,10 @@
                             }
                           },
                           "pressure": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
                           },
                           "humidity": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
                           },
                           "dew_point": {
                             "type": "number"
@@ -323,8 +331,10 @@
                             "type": "number"
                           },
                           "wind_deg": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
+                          },
+                          "wind_gust": {
+                            "type": "number"
                           },
                           "weather": {
                             "type": "array",
@@ -332,8 +342,7 @@
                               "type": "object",
                               "properties": {
                                 "id": {
-                                  "type": "integer",
-                                  "format": "int32"
+                                  "type": "number"
                                 },
                                 "main": {
                                   "type": "string"
@@ -348,8 +357,10 @@
                             }
                           },
                           "clouds": {
-                            "type": "integer",
-                            "format": "int32"
+                            "type": "number"
+                          },
+                          "pop": {
+                            "type": "number"
                           },
                           "uvi": {
                             "type": "number"
