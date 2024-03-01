@@ -381,7 +381,7 @@
     "securitySchemes": {
       "blocApiKey": {
         "type": "apiKey",
-        "name": "X-API-Key",
+        "name": "x-api-key",
         "in": "header"
       }
     }
