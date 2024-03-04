@@ -7,7 +7,7 @@
     "description": "Get essential weather data, short-term and long-term forecasts and aggregated weather data is easy with the OpenWeather One Call API v3.0.",
     "version": "3.0"
   },
-  "x-blocklet-description": "",
+  "x-blocklet-description": "In order to use this Bloc you will need the following;<br /><br />1. An Account with OpenWeather Map.<br />2. An API Key for the One Call API<br /><br />You have the option to activate our caching technology for this Bloc in order to boost performance and minimise your usage of the OpenWeather Map API.&nbsp;",
   "externalDocs": {
     "description": "Openweathermap Documentation",
     "url": "https://openweathermap.org/api/one-call-3"
