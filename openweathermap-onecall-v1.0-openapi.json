@@ -34,7 +34,7 @@
         "parameters": [
           {
             "name": "x-collection-key",
-            "in": "header",
+            "in": "query",
             "description": "Additional Collection Specific API Key",
             "schema": {
               "type": "string"
