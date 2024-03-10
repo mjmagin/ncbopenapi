@@ -1,0 +1,722 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Supabase Authentication",
+        "summary": "Supabase Authentication",
+        "termsOfService": "terms of service description",
+        "description": "Supabase Authentication docs https://github.com/supabase/gotrue#endpoints",
+        "version": "1.0.0"
+    },
+    "x-blocklet-description": "In order to use this Bloc you will need the following;<br /><br />1. An Account with Supabase.<br />2. An ANON API Key for your project<br /><br />3. A referenceid for your project<br /><br />",
+    "externalDocs": {
+        "description": "Supabase Auth Documentation",
+        "url": "https://github.com/supabase/gotrue#endpoints"
+    },
+    "servers": [
+        {
+            "url": "https://referenceid.supabase.co/auth/v1"
+        }
+    ],
+    "paths": {
+        "/signup": {
+            "post": {
+                "summary": "Signup",
+                "description": "Signup User",
+                "parameters": [
+                    {
+                        "name": "apikey",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "aud": {
+                                            "type": "string"
+                                        },
+                                        "role": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "phone": {
+                                            "type": "string"
+                                        },
+                                        "confirmation_sent_at": {
+                                            "type": "string"
+                                        },
+                                        "app_metadata": {
+                                            "type": "object",
+                                            "properties": {
+                                                "provider": {
+                                                    "type": "string"
+                                                },
+                                                "providers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "user_metadata": {
+                                            "type": "object",
+                                            "properties": {
+                                                "identities": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "user_id": {
+                                                                "type": "string"
+                                                            },
+                                                            "identity_data": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "email": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "email_verified": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "phone_verified": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "sub": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "provider": {
+                                                                "type": "string"
+                                                            },
+                                                            "last_sign_in_at": {
+                                                                "type": "string"
+                                                            },
+                                                            "created_at": {
+                                                                "type": "string"
+                                                            },
+                                                            "updated_at": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {}
+                    }
+                },
+                "x-codegen-request-body-name": "body"
+            }
+        },
+        "/token": {
+            "post": {
+                "summary": "SignIn or refresh token",
+                "description": "User Sign In or refresh Token",
+                "parameters": [
+                    {
+                        "name": "apikey",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "grant_type",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "password"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "refresh_token": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "access_token": {
+                                            "type": "string"
+                                        },
+                                        "token_type": {
+                                            "type": "string"
+                                        },
+                                        "expires_in": {
+                                            "type": "number"
+                                        },
+                                        "expires_at": {
+                                            "type": "number"
+                                        },
+                                        "refresh_token": {
+                                            "type": "string"
+                                        },
+                                        "user": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "aud": {
+                                                    "type": "string"
+                                                },
+                                                "role": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "email_confirmed_at": {
+                                                    "type": "string"
+                                                },
+                                                "phone": {
+                                                    "type": "string"
+                                                },
+                                                "confirmation_sent_at": {
+                                                    "type": "string"
+                                                },
+                                                "confirmed_at": {
+                                                    "type": "string"
+                                                },
+                                                "last_sign_in_at": {
+                                                    "type": "string"
+                                                },
+                                                "app_metadata": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "provider": {
+                                                            "type": "string"
+                                                        },
+                                                        "providers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "user_metadata": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "identities": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "user_id": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "identity_data": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "email": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "email_verified": {
+                                                                                "type": "boolean"
+                                                                            },
+                                                                            "phone_verified": {
+                                                                                "type": "boolean"
+                                                                            },
+                                                                            "sub": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "provider": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "last_sign_in_at": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "created_at": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "updated_at": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "created_at": {
+                                                    "type": "string"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {}
+                    }
+                },
+                "x-codegen-request-body-name": "body"
+            }
+        },
+        "/user": {
+            "get": {
+                "summary": "Get user",
+                "description": "get user details",
+                "parameters": [
+                    {
+                        "name": "apikey",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "aud": {
+                                            "type": "string"
+                                        },
+                                        "role": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "email_confirmed_at": {
+                                            "type": "string"
+                                        },
+                                        "phone": {
+                                            "type": "string"
+                                        },
+                                        "confirmation_sent_at": {
+                                            "type": "string"
+                                        },
+                                        "confirmed_at": {
+                                            "type": "string"
+                                        },
+                                        "recovery_sent_at": {
+                                            "type": "string"
+                                        },
+                                        "last_sign_in_at": {
+                                            "type": "string"
+                                        },
+                                        "app_metadata": {
+                                            "type": "object",
+                                            "properties": {
+                                                "provider": {
+                                                    "type": "string"
+                                                },
+                                                "providers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "user_metadata": {
+                                            "type": "object",
+                                            "properties": {
+                                                "customData1": {
+                                                    "type": "string"
+                                                },
+                                                "customData10": {
+                                                    "type": "string"
+                                                },
+                                                "customData2": {
+                                                    "type": "string"
+                                                },
+                                                "customData3": {
+                                                    "type": "string"
+                                                },
+                                                "customData4": {
+                                                    "type": "string"
+                                                },
+                                                "customData5": {
+                                                    "type": "string"
+                                                },
+                                                "customData6": {
+                                                    "type": "string"
+                                                },
+                                                "customData7": {
+                                                    "type": "string"
+                                                },
+                                                "customData8": {
+                                                    "type": "string"
+                                                },
+                                                "customData9": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "identities": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "string"
+                                                    },
+                                                    "identity_data": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "email": {
+                                                                "type": "string"
+                                                            },
+                                                            "email_verified": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "phone_verified": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "sub": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "provider": {
+                                                        "type": "string"
+                                                    },
+                                                    "last_sign_in_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {}
+                    }
+                }
+            },
+            "put": {
+                "summary": "update user data",
+                "description": "update user data",
+                "parameters": [
+                    {
+                        "name": "apikey",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "object",
+                                        "properties": {
+                                            "customData1": {
+                                                "type": "string"
+                                            },
+                                            "customData2": {
+                                                "type": "string"
+                                            },
+                                            "customData3": {
+                                                "type": "string"
+                                            },
+                                            "customData4": {
+                                                "type": "string"
+                                            },
+                                            "customData5": {
+                                                "type": "string"
+                                            },
+                                            "customData6": {
+                                                "type": "string"
+                                            },
+                                            "customData7": {
+                                                "type": "string"
+                                            },
+                                            "customData8": {
+                                                "type": "string"
+                                            },
+                                            "customData9": {
+                                                "type": "string"
+                                            },
+                                            "customData10": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "aud": {
+                                            "type": "string"
+                                        },
+                                        "role": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "email_confirmed_at": {
+                                            "type": "string"
+                                        },
+                                        "phone": {
+                                            "type": "string"
+                                        },
+                                        "confirmation_sent_at": {
+                                            "type": "string"
+                                        },
+                                        "confirmed_at": {
+                                            "type": "string"
+                                        },
+                                        "recovery_sent_at": {
+                                            "type": "string"
+                                        },
+                                        "last_sign_in_at": {
+                                            "type": "string"
+                                        },
+                                        "app_metadata": {
+                                            "type": "object",
+                                            "properties": {
+                                                "provider": {
+                                                    "type": "string"
+                                                },
+                                                "providers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "user_metadata": {
+                                            "type": "object",
+                                            "properties": {
+                                                "customData1": {
+                                                    "type": "string"
+                                                },
+                                                "customData10": {
+                                                    "type": "string"
+                                                },
+                                                "customData2": {
+                                                    "type": "string"
+                                                },
+                                                "customData3": {
+                                                    "type": "string"
+                                                },
+                                                "customData4": {
+                                                    "type": "string"
+                                                },
+                                                "customData5": {
+                                                    "type": "string"
+                                                },
+                                                "customData6": {
+                                                    "type": "string"
+                                                },
+                                                "customData7": {
+                                                    "type": "string"
+                                                },
+                                                "customData8": {
+                                                    "type": "string"
+                                                },
+                                                "customData9": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "identities": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "string"
+                                                    },
+                                                    "identity_data": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "email": {
+                                                                "type": "string"
+                                                            },
+                                                            "email_verified": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "phone_verified": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "sub": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "provider": {
+                                                        "type": "string"
+                                                    },
+                                                    "last_sign_in_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {}
+                    }
+                },
+                "x-codegen-request-body-name": "body"
+            }
+        }
+    },
+    "components": {},
+    "x-original-swagger-version": "2.0"
+}
