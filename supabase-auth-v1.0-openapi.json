@@ -23,6 +23,9 @@
         },
         {
             "collectionApiKey": []
+        },
+        {
+            "AuthorizationToken": []
         }
     ],
     "paths": {
@@ -694,6 +697,12 @@
                 "name": "x-collection-key",
                 "description": "(Optional) Only Required if Collection Account API Key has been configured",
                 "in": "header",
+                "required": false
+            },
+            "AuthorizationToken": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "(Optional) Only Required if authorising with the Auth Token from Sign In e.g for User Updates",
                 "required": false
             }
         }
