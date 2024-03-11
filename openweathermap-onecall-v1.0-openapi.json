@@ -47,22 +47,6 @@
             }
           },
           {
-            "name": "x-collection-key",
-            "in": "header",
-            "description": "Additional Collection Specific API Key",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "Use token from a Bloclet authentication Bloc",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "lon",
             "in": "query",
             "description": "Latitude, decimal (-90; 90). If you need the geocoder to automatic convert city names and zip-codes to geo coordinates and the other way around, use one of our Geocoding Blocks",
