@@ -20,6 +20,12 @@
   "security": [
     {
       "blocApiKey": []
+    },
+    {
+      "collectionApiKey": []
+    },
+    {
+      "AuthorizationToken": []
     }
   ],
   "paths": {
@@ -390,7 +396,19 @@
       "blocApiKey": {
         "type": "apiKey",
         "name": "x-api-key",
-        "in": "header"
+        "in": "header",
+        "required": true
+      },
+      "collectionApiKey": {
+        "type": "apiKey",
+        "name": "x-collection-key",
+        "in": "header",
+        "required": false
+      },
+      "AuthorizationToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "required": false
       }
     }
   },

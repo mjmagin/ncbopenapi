@@ -17,6 +17,14 @@
             "url": "https://referenceid.supabase.co/auth/v1"
         }
     ],
+    "security": [
+        {
+            "blocApiKey": []
+        },
+        {
+            "collectionApiKey": []
+        }
+    ],
     "paths": {
         "/signup": {
             "post": {
@@ -717,6 +725,21 @@
             }
         }
     },
-    "components": {},
+    "components": {
+        "securitySchemes": {
+            "blocApiKey": {
+                "type": "apiKey",
+                "name": "x-api-key",
+                "in": "header",
+                "required": true
+            },
+            "collectionApiKey": {
+                "type": "apiKey",
+                "name": "x-collection-key",
+                "in": "header",
+                "required": false
+            }
+        }
+    },
     "x-original-swagger-version": "2.0"
 }
