@@ -19,7 +19,7 @@
     ],
     "security": [
         {
-            "blocApiKey": []
+            "accountApiKey": []
         },
         {
             "collectionApiKey": []
@@ -30,15 +30,7 @@
             "post": {
                 "summary": "Signup",
                 "description": "Signup User",
-                "parameters": [
-                    {
-                        "name": "apikey",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -169,13 +161,6 @@
                 "summary": "SignIn or refresh token",
                 "description": "User Sign In or refresh Token",
                 "parameters": [
-                    {
-                        "name": "apikey",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "grant_type",
                         "in": "query",
@@ -346,22 +331,7 @@
             "get": {
                 "summary": "Get user",
                 "description": "get user details",
-                "parameters": [
-                    {
-                        "name": "apikey",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Successful response",
@@ -512,22 +482,7 @@
             "put": {
                 "summary": "update user data",
                 "description": "update user data",
-                "parameters": [
-                    {
-                        "name": "apikey",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -727,15 +682,17 @@
     },
     "components": {
         "securitySchemes": {
-            "blocApiKey": {
+            "accountApiKey": {
                 "type": "apiKey",
                 "name": "x-api-key",
+                "description": "(Required) Blocklet Account API Key",
                 "in": "header",
                 "required": true
             },
             "collectionApiKey": {
                 "type": "apiKey",
                 "name": "x-collection-key",
+                "description": "(Optional) Only Required if Collection Account API Key has been configured",
                 "in": "header",
                 "required": false
             }
