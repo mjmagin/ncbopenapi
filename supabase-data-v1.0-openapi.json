@@ -1,0 +1,32 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Supabase Data API",
+        "summary": "Supabase Data API",
+        "termsOfService": "terms of service description",
+        "description": "Supabase Data docs",
+        "version": "1.0.0"
+    },
+    "x-blocklet-description": "In order to use this Bloc you will need the following;<br /><br />1. An Account with Supabase.<br />2. An ANON API Key for your project<br /><br />3. A referenceid for your project<br /><br />",
+    "externalDocs": {
+        "description": "Supabase Data API Documentation",
+        "url": "https://supabase.com/docs/guides/api/data-apis"
+    },
+    "servers": [
+        {
+            "url": "https://referenceid.supabase.co/rest/v1"
+        }
+    ],
+    "security": [
+        {
+            "accountApiKey": []
+        },
+        {
+            "collectionApiKey": []
+        },
+        {
+            "AuthorizationToken": []
+        }
+    ],
+    "paths": {}
+}
