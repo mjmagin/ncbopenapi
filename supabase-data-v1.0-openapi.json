@@ -17,16 +17,5 @@
             "url": "https://referenceid.supabase.co/rest/v1"
         }
     ],
-    "security": [
-        {
-            "accountApiKey": []
-        },
-        {
-            "collectionApiKey": []
-        },
-        {
-            "AuthorizationToken": []
-        }
-    ],
     "paths": {}
 }
