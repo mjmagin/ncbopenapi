@@ -71,8 +71,15 @@
                         "description": "eg image or video or raw or auto",
                         "required": true,
                         "schema": {
-                            "type": "string"
-                        }
+                            "type": "string",
+                            "enum": [
+                                "image",
+                                "video",
+                                "raw",
+                                "auto"
+                            ]
+                        },
+                        "default": "auto"
                     }
                 ],
                 "requestBody": {
