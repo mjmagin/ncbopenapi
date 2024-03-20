@@ -1,0 +1,174 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Cloudinary Upload API",
+        "summary": "Cloudinary Upload API",
+        "termsOfService": "terms of service description",
+        "description": "Cloudinary Upload API https://cloudinary.com/documentation/upload_images#uploading_with_a_direct_call_to_the_rest_api ",
+        "version": "1.0"
+    },
+    "x-blocklet-description": "In order to use this Bloc you will need the following;<br /><br />1. An Account with Cloudinary.<br />2. The Cloud Name<br/><br />3. The API Key<br/><br />4. The API Secret<br/><br />",
+    "externalDocs": {
+        "description": "Cloudinary Documentation",
+        "url": "https://cloudinary.com/documentation/upload_images#uploading_with_a_direct_call_to_the_rest_api "
+    },
+    "servers": [
+        {
+            "url": "https://api.cloudinary.com/v1_1"
+        }
+    ],
+    "paths": {
+        "/{resourcetype}/destroy": {
+            "post": {
+                "summary": "delete file",
+                "description": "delete file",
+                "parameters": [
+                    {
+                        "name": "resourcetype",
+                        "in": "path",
+                        "description": "eg image or video or raw or auto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "public_id": {
+                                        "type": "string",
+                                        "description": "your public id for image"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {}
+                    },
+                    "default": {
+                        "description": "error",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/{resourcetype}/upload": {
+            "post": {
+                "summary": "resource upload w/o transformation",
+                "description": "resource upload w/o transformation",
+                "parameters": [
+                    {
+                        "name": "resourcetype",
+                        "in": "path",
+                        "description": "eg image or video or raw or auto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "description": "The file to upload. Can be the actual data (byte array buffer), the Data URI (Base64 encoded), a remote FTP, HTTP or HTTPS URL of an existing file, or a private storage bucket (S3 or Google Storage) URL of a whitelisted bucket.",
+                                        "format": "binary",
+                                        "x-ct-mimetype": "image/png"
+                                    },
+                                    "public_id": {
+                                        "type": "string",
+                                        "description": "your public id for image"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "asset_id": {
+                                            "type": "string"
+                                        },
+                                        "public_id": {
+                                            "type": "string"
+                                        },
+                                        "version": {
+                                            "type": "number"
+                                        },
+                                        "version_id": {
+                                            "type": "string"
+                                        },
+                                        "signature": {
+                                            "type": "string"
+                                        },
+                                        "width": {
+                                            "type": "number"
+                                        },
+                                        "height": {
+                                            "type": "number"
+                                        },
+                                        "resource_type": {
+                                            "type": "string"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "etag": {
+                                            "type": "string"
+                                        },
+                                        "placeholder": {
+                                            "type": "boolean"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "secure_url": {
+                                            "type": "string"
+                                        },
+                                        "folder": {
+                                            "type": "string"
+                                        },
+                                        "original_filename": {
+                                            "type": "string"
+                                        },
+                                        "original_extension": {
+                                            "type": "string"
+                                        },
+                                        "api_key": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "error",
+                        "content": {}
+                    }
+                }
+            }
+        }
+    },
+    "components": {},
+    "x-original-swagger-version": "2.0"
+}
