@@ -83,19 +83,8 @@
                                 "properties": {
                                     "file": {
                                         "type": "string",
-                                        "description": "The file to upload. Can be the actual data (byte array buffer), the Data URI (Base64 encoded), a remote FTP, HTTP or HTTPS URL of an existing file, or a private storage bucket (S3 or Google Storage) URL of a whitelisted bucket.",
-                                        "anyOf": [
-                                            {
-                                                "format": "binary"
-                                            },
-                                            {
-                                                "format": "data-uri"
-                                            },
-                                            {
-                                                "format": "uri"
-                                            }
-                                        ],
-                                        "x-ct-mimetype": "image/png"
+                                        "format": "binary",
+                                        "description": "The file to upload. Can be the actual data (byte array buffer), the Data URI (Base64 encoded), a remote FTP, HTTP or HTTPS URL of an existing file, or a private storage bucket (S3 or Google Storage) URL of a whitelisted bucket."
                                     },
                                     "public_id": {
                                         "type": "string",
