@@ -79,8 +79,8 @@
         },
         "/{resourcetype}/upload": {
             "post": {
-                "summary": "resource upload w/o transformation (limit circa 4.5MB)",
-                "description": "resource upload w/o transformation (limit circa 4.5MB)",
+                "summary": "resource upload and transformation (limit circa 4.5MB)",
+                "description": "resource upload and transformation (limit circa 4.5MB)",
                 "parameters": [
                     {
                         "name": "resourcetype",
