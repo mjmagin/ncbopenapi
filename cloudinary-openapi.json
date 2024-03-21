@@ -40,7 +40,13 @@
                         "description": "eg image or video or raw or auto",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "enum": [
+                                "image",
+                                "video",
+                                "raw",
+                                "auto"
+                            ]
                         }
                     }
                 ],
@@ -106,7 +112,35 @@
                                     },
                                     "public_id": {
                                         "type": "string",
-                                        "description": "your public id for image"
+                                        "description": "The identifier that's used for accessing and delivering the uploaded asset. If not specified, then the public ID of the asset will either be comprised of random characters or will use the original file's filename, depending whether use_filename was set to true."
+                                    },
+                                    "folder": {
+                                        "type": "string",
+                                        "description": "Defines both the full path of the folder where the uploaded asset will be placed and also a path value that's prepended to public_id value with a forward slash."
+                                    },
+                                    "eager": {
+                                        "type": "string",
+                                        "description": "A list of transformations to create for the uploaded asset, instead of lazily creating them when first accessed by your site's visitors (see the Transformation URL API Reference for more details on possible values). This option accepts either a single transformation or a pipe-separated list of transformations to create for the uploaded asset."
+                                    },
+                                    "transformation": {
+                                        "type": "string",
+                                        "description": "An incoming transformation to run on the uploaded asset before saving it in the cloud. This parameter is given as a string of comma-separated single characters (separated with a slash for chained transformations).SDKs: Supports a hash of transformation parameters (or an array of hashes for chained transformations)."
+                                    },
+                                    "use_filename": {
+                                        "type": "boolean",
+                                        "description": "Whether to use the original file name of the uploaded file as the public_id. Relevant only if the public_id parameter isn't set. When false and the public_id parameter is also not defined, the public ID will be comprised of random characters."
+                                    },
+                                    "unique_filename": {
+                                        "type": "boolean",
+                                        "description": "When set to false, does not add random characters at the end of the filename that guarantee its uniqueness. Note that if the overwrite parameter is also false, the public ID will be comprised of random characters. This parameter is relevant only if use_filename is also set to true. Default: true."
+                                    },
+                                    "overwrite": {
+                                        "type": "boolean",
+                                        "description": "Whether to overwrite existing assets with the same public ID. When set to false, a response is returned immediately if an asset with the same public ID was found."
+                                    },
+                                    "format": {
+                                        "type": "string",
+                                        "description": "An optional format to convert the uploaded asset to before saving in the cloud. For example: jpg."
                                     }
                                 }
                             }
