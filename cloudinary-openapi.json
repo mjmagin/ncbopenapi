@@ -127,11 +127,11 @@
                                         "description": "An incoming transformation to run on the uploaded asset before saving it in the cloud. This parameter is given as a string of comma-separated single characters (separated with a slash for chained transformations).SDKs: Supports a hash of transformation parameters (or an array of hashes for chained transformations).",
                                         "properties": {
                                             "width": {
-                                                "type": "string",
+                                                "type": "number",
                                                 "description": "The width of the transformed image. If the value is set to auto, the width of the transformed image will be calculated based on the original image's aspect ratio."
                                             },
                                             "height": {
-                                                "type": "string",
+                                                "type": "number",
                                                 "description": "The height of the transformed image. If the value is set to auto, the height of the transformed image will be calculated based on the original image's aspect ratio."
                                             },
                                             "crop": {
