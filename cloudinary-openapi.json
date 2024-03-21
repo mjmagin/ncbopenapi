@@ -123,8 +123,26 @@
                                         "description": "A list of transformations to create for the uploaded asset, instead of lazily creating them when first accessed by your site's visitors (see the Transformation URL API Reference for more details on possible values). This option accepts either a single transformation or a pipe-separated list of transformations to create for the uploaded asset."
                                     },
                                     "transformation": {
-                                        "type": "string",
-                                        "description": "An incoming transformation to run on the uploaded asset before saving it in the cloud. This parameter is given as a string of comma-separated single characters (separated with a slash for chained transformations).SDKs: Supports a hash of transformation parameters (or an array of hashes for chained transformations)."
+                                        "type": "object",
+                                        "description": "An incoming transformation to run on the uploaded asset before saving it in the cloud. This parameter is given as a string of comma-separated single characters (separated with a slash for chained transformations).SDKs: Supports a hash of transformation parameters (or an array of hashes for chained transformations).",
+                                        "properties": {
+                                            "width": {
+                                                "type": "string",
+                                                "description": "The width of the transformed image. If the value is set to auto, the width of the transformed image will be calculated based on the original image's aspect ratio."
+                                            },
+                                            "height": {
+                                                "type": "string",
+                                                "description": "The height of the transformed image. If the value is set to auto, the height of the transformed image will be calculated based on the original image's aspect ratio."
+                                            },
+                                            "crop": {
+                                                "type": "string",
+                                                "description": "The cropping mode to use when resizing the image. The default value is fit. The following crop modes are supported: fit, limit, pad, scale, crop, thumb, fill, mfit, mpad, mfill, mthumb, lfill, lpad, lthumb, limit_faces, limit_illustration, limit_concepts, facearea, min, max, and auto."
+                                            },
+                                            "gravity": {
+                                                "type": "string",
+                                                "description": "The gravity to use when cropping the image. The default value is auto. The following gravity modes are supported: auto, north, northeast, southeast, south, southwest, west, northwest, and center."
+                                            }
+                                        }
                                     },
                                     "use_filename": {
                                         "type": "boolean",
