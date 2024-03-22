@@ -69,7 +69,7 @@
                 "summary": "Get Presigned URL for Uploading S3 Object",
                 "description": "Get Presigned URL for Uploading S3 Object",
                 "parameters": [
-                    presigned{
+                    {
                         "name": "key",
                         "in": "query",
                         "required": true,
