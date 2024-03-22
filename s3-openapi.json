@@ -29,27 +29,81 @@
         }
     ],
     "paths": {
-        "/{resourcetype}/destroy": {
-            "post": {
-                "summary": "delete file",
-                "description": "delete file",
+        "/readpresignedurl": {
+            "get": {
+                "summary": "Get Presigned URL for Reading S3 Object",
+                "description": "Get Presigned URL for Reading S3 Object",
                 "parameters": [
                     {
-                        "name": "resourcetype",
-                        "in": "path",
-                        "description": "eg image or video or raw or auto",
+                        "name": "key",
+                        "in": "query",
                         "required": true,
                         "schema": {
-                            "type": "string",
-                            "enum": [
-                                "image",
-                                "video",
-                                "raw",
-                                "auto"
-                            ]
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "expiresIn",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "default": 3600
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {}
+                    },
+                    "default": {
+                        "description": "error",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/writepresignedurl": {
+            "get": {
+                "summary": "Get Presigned URL for Uploading S3 Object",
+                "description": "Get Presigned URL for Uploading S3 Object",
+                "parameters": [
+                    presigned{
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "expiresIn",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "default": 3600
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {}
+                    },
+                    "default": {
+                        "description": "error",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/delete": {
+            "post": {
+                "summary": "delete file",
+                "description": "delete file",
+                "parameters": [],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -77,28 +131,11 @@
                 }
             }
         },
-        "/{resourcetype}/upload": {
+        "/upload": {
             "post": {
-                "summary": "resource upload and transformation (limit circa 4.5MB)",
-                "description": "resource upload and transformation (limit circa 4.5MB)",
-                "parameters": [
-                    {
-                        "name": "resourcetype",
-                        "in": "path",
-                        "description": "eg image or video or raw or auto",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "image",
-                                "video",
-                                "raw",
-                                "auto"
-                            ]
-                        },
-                        "default": "auto"
-                    }
-                ],
+                "summary": "S3 Object Upload",
+                "description": "S3 Object Upload",
+                "parameters": [],
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
