@@ -99,26 +99,20 @@
                 }
             }
         },
-        "/delete": {
-            "post": {
-                "summary": "delete file",
-                "description": "delete file",
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "public_id": {
-                                        "type": "string",
-                                        "description": "your public id for image"
-                                    }
-                                }
-                            }
+        "/getobject": {
+            "get": {
+                "summary": "Get S3 Object",
+                "description": "Get S3 Object",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -131,11 +125,37 @@
                 }
             }
         },
-        "/upload": {
-            "post": {
+        "/listobjects": {
+            "get": {
+                "summary": "List S3 Objects in Bucket",
+                "description": "List S3 Objects in Bucket",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {}
+                    },
+                    "default": {
+                        "description": "error",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/putobject": {
+            "put": {
                 "summary": "S3 Object Upload",
                 "description": "S3 Object Upload",
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
