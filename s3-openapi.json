@@ -105,6 +105,15 @@
                 "description": "Get S3 Object",
                 "parameters": [
                     {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "image/jpeg"
+                    },
+                    {
                         "name": "key",
                         "in": "query",
                         "required": true,
