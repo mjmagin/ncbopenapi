@@ -125,7 +125,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content": {}
+                        "image/jpeg": {
+                            "content": {}
+                        }
                     },
                     "default": {
                         "description": "error",
