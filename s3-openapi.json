@@ -233,6 +233,14 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "acl",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "requestBody": {
@@ -244,159 +252,7 @@
                                     "file": {
                                         "type": "string",
                                         "format": "binary",
-                                        "description": "The file to upload. Can be the actual data (byte array buffer), the Data URI (Base64 encoded), a remote FTP, HTTP or HTTPS URL of an existing file, or a private storage bucket (S3 or Google Storage) URL of a whitelisted bucket."
-                                    },
-                                    "public_id": {
-                                        "type": "string",
-                                        "description": "The identifier that's used for accessing and delivering the uploaded asset. If not specified, then the public ID of the asset will either be comprised of random characters or will use the original file's filename, depending whether use_filename was set to true."
-                                    },
-                                    "folder": {
-                                        "type": "string",
-                                        "description": "Defines both the full path of the folder where the uploaded asset will be placed and also a path value that's prepended to public_id value with a forward slash."
-                                    },
-                                    "eager": {
-                                        "type": "object",
-                                        "description": "An incoming transformation to run on the uploaded asset before saving it in the cloud. ",
-                                        "properties": {
-                                            "width": {
-                                                "type": "number",
-                                                "description": "The width of the transformed image. If the value is set to auto, the width of the transformed image will be calculated based on the original image's aspect ratio."
-                                            },
-                                            "height": {
-                                                "type": "number",
-                                                "description": "The height of the transformed image. If the value is set to auto, the height of the transformed image will be calculated based on the original image's aspect ratio."
-                                            },
-                                            "crop": {
-                                                "type": "string",
-                                                "description": "The cropping mode to use when resizing the image. The default value is fit. The following crop modes are supported: fit, limit, pad, scale, crop, thumb, fill, mfit, mpad, mfill, mthumb, lfill, lpad, lthumb, limit_faces, limit_illustration, limit_concepts, facearea, min, max, and auto."
-                                            },
-                                            "gravity": {
-                                                "type": "string",
-                                                "description": "The gravity to use when cropping the image. The default value is auto. The following gravity modes are supported: auto, north, northeast, southeast, south, southwest, west, northwest, and center."
-                                            },
-                                            "effect": {
-                                                "type": "string",
-                                                "description": "Apply Effect e.g. 'cartoonify'"
-                                            },
-                                            "radius": {
-                                                "type": "string",
-                                                "description": "Radius e.g. 'max or 60'"
-                                            },
-                                            "color": {
-                                                "type": "string",
-                                                "description": "Color"
-                                            },
-                                            "background": {
-                                                "type": "string",
-                                                "description": "background"
-                                            },
-                                            "angle": {
-                                                "type": "number",
-                                                "description": "Angle"
-                                            },
-                                            "flags": {
-                                                "type": "string",
-                                                "description": "flags"
-                                            },
-                                            "y": {
-                                                "type": "number",
-                                                "description": "y"
-                                            },
-                                            "overlay": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "font_family": {
-                                                        "type": "string"
-                                                    },
-                                                    "font_size": {
-                                                        "type": "number"
-                                                    },
-                                                    "text": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "transformation": {
-                                        "type": "object",
-                                        "description": "An incoming transformation to run on the uploaded asset before saving it in the cloud. ",
-                                        "properties": {
-                                            "width": {
-                                                "type": "number",
-                                                "description": "The width of the transformed image. If the value is set to auto, the width of the transformed image will be calculated based on the original image's aspect ratio."
-                                            },
-                                            "height": {
-                                                "type": "number",
-                                                "description": "The height of the transformed image. If the value is set to auto, the height of the transformed image will be calculated based on the original image's aspect ratio."
-                                            },
-                                            "crop": {
-                                                "type": "string",
-                                                "description": "The cropping mode to use when resizing the image. The default value is fit. The following crop modes are supported: fit, limit, pad, scale, crop, thumb, fill, mfit, mpad, mfill, mthumb, lfill, lpad, lthumb, limit_faces, limit_illustration, limit_concepts, facearea, min, max, and auto."
-                                            },
-                                            "gravity": {
-                                                "type": "string",
-                                                "description": "The gravity to use when cropping the image. The default value is auto. The following gravity modes are supported: auto, north, northeast, southeast, south, southwest, west, northwest, and center."
-                                            },
-                                            "effect": {
-                                                "type": "string",
-                                                "description": "Apply Effect e.g. 'cartoonify'"
-                                            },
-                                            "radius": {
-                                                "type": "string",
-                                                "description": "Radius e.g. 'max or 60'"
-                                            },
-                                            "color": {
-                                                "type": "string",
-                                                "description": "Color"
-                                            },
-                                            "background": {
-                                                "type": "string",
-                                                "description": "background"
-                                            },
-                                            "angle": {
-                                                "type": "number",
-                                                "description": "Angle"
-                                            },
-                                            "flags": {
-                                                "type": "string",
-                                                "description": "flags"
-                                            },
-                                            "y": {
-                                                "type": "number",
-                                                "description": "y"
-                                            },
-                                            "overlay": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "font_family": {
-                                                        "type": "string"
-                                                    },
-                                                    "font_size": {
-                                                        "type": "number"
-                                                    },
-                                                    "text": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "use_filename": {
-                                        "type": "boolean",
-                                        "description": "Whether to use the original file name of the uploaded file as the public_id. Relevant only if the public_id parameter isn't set. When false and the public_id parameter is also not defined, the public ID will be comprised of random characters."
-                                    },
-                                    "unique_filename": {
-                                        "type": "boolean",
-                                        "description": "When set to false, does not add random characters at the end of the filename that guarantee its uniqueness. Note that if the overwrite parameter is also false, the public ID will be comprised of random characters. This parameter is relevant only if use_filename is also set to true. Default: true."
-                                    },
-                                    "overwrite": {
-                                        "type": "boolean",
-                                        "description": "Whether to overwrite existing assets with the same public ID. When set to false, a response is returned immediately if an asset with the same public ID was found."
-                                    },
-                                    "format": {
-                                        "type": "string",
-                                        "description": "An optional format to convert the uploaded asset to before saving in the cloud. For example: jpg."
+                                        "description": "The file to upload. "
                                     }
                                 }
                             }
@@ -408,63 +264,7 @@
                         "description": "OK",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "asset_id": {
-                                            "type": "string"
-                                        },
-                                        "public_id": {
-                                            "type": "string"
-                                        },
-                                        "version": {
-                                            "type": "number"
-                                        },
-                                        "version_id": {
-                                            "type": "string"
-                                        },
-                                        "signature": {
-                                            "type": "string"
-                                        },
-                                        "width": {
-                                            "type": "number"
-                                        },
-                                        "height": {
-                                            "type": "number"
-                                        },
-                                        "resource_type": {
-                                            "type": "string"
-                                        },
-                                        "created_at": {
-                                            "type": "string",
-                                            "format": "date-time"
-                                        },
-                                        "etag": {
-                                            "type": "string"
-                                        },
-                                        "placeholder": {
-                                            "type": "boolean"
-                                        },
-                                        "url": {
-                                            "type": "string"
-                                        },
-                                        "secure_url": {
-                                            "type": "string"
-                                        },
-                                        "folder": {
-                                            "type": "string"
-                                        },
-                                        "original_filename": {
-                                            "type": "string"
-                                        },
-                                        "original_extension": {
-                                            "type": "string"
-                                        },
-                                        "api_key": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
+                                "schema": {}
                             }
                         }
                     },
