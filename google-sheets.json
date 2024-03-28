@@ -1,0 +1,75 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Google Sheets",
+        "summary": "Google Sheets",
+        "termsOfService": "terms of service description",
+        "description": "Google Sheets API description tbd ",
+        "version": "1.0"
+    },
+    "x-blocklet-description": "Google Sheets API description tbd",
+    "externalDocs": {
+        "description": "Google Sheets Documentation",
+        "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/Type_API_Reference.html"
+    },
+    "servers": [
+        {
+            "url": "tobeaddedatconfiguration"
+        }
+    ],
+    "security": [
+        {
+            "accountApiKey": []
+        },
+        {
+            "collectionApiKey": []
+        },
+        {
+            "AuthorizationToken": []
+        }
+    ],
+    "paths": {
+        "/list": {
+            "get": {
+                "summary": "List Data",
+                "description": "List Data",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {}
+                    },
+                    "default": {
+                        "description": "error",
+                        "content": {}
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "accountApiKey": {
+                "type": "apiKey",
+                "name": "x-api-key",
+                "description": "(Required) Blocklet Account API Key",
+                "in": "header",
+                "required": true
+            },
+            "collectionApiKey": {
+                "type": "apiKey",
+                "name": "x-collection-key",
+                "description": "(Optional) Only Required if Collection Account API Key has been configured",
+                "in": "header",
+                "required": false
+            },
+            "AuthorizationToken": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "(Optional) Only Required if authorising with an Bloclet Auth Bloc has been configured",
+                "required": false
+            }
+        }
+    },
+    "x-original-swagger-version": "2.0"
+}
