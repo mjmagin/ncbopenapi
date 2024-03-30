@@ -29,11 +29,39 @@
         }
     ],
     "paths": {
-        "/list": {
+        "/rows": {
             "get": {
-                "summary": "List Data",
-                "description": "List Data",
-                "parameters": [],
+                "summary": "Get Rows",
+                "description": "Get Rows",
+                "parameters": [
+                    {
+                        "name": "tabId",
+                        "in": "query",
+                        "description": "Sheet TabId e.g. Sheet1",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Max number of rows to fetch",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "How many rows to skip from the top",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
