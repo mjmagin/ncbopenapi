@@ -47,7 +47,7 @@
                         "name": "limit",
                         "in": "query",
                         "description": "Max number of rows to fetch",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
@@ -56,7 +56,7 @@
                         "name": "offset",
                         "in": "query",
                         "description": "How many rows to skip from the top",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
