@@ -72,6 +72,42 @@
                         "content": {}
                     }
                 }
+            },
+            "post": {
+                "summary": "Add Row",
+                "description": "Add Row",
+                "parameters": [
+                    {
+                        "name": "tabId",
+                        "in": "query",
+                        "description": "Sheet TabId e.g. Sheet1",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true,
+                    "description": "Row data",
+                    "responses": {
+                        "201": {
+                            "description": "OK",
+                            "content": {}
+                        },
+                        "default": {
+                            "description": "error",
+                            "content": {}
+                        }
+                    }
+                }
             }
         }
     },
