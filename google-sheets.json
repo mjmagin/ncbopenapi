@@ -88,24 +88,24 @@
                     }
                 ],
                 "requestBody": {
+                    "required": true,
+                    "description": "Row data",
                     "content": {
                         "application/json": {
                             "schema": {
                                 "type": "object"
                             }
                         }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "OK",
+                        "content": {}
                     },
-                    "required": true,
-                    "description": "Row data",
-                    "responses": {
-                        "201": {
-                            "description": "OK",
-                            "content": {}
-                        },
-                        "default": {
-                            "description": "error",
-                            "content": {}
-                        }
+                    "default": {
+                        "description": "error",
+                        "content": {}
                     }
                 }
             }
