@@ -35,6 +35,14 @@
                 "description": "Get Rows",
                 "parameters": [
                     {
+                        "name": "Cache-Control",
+                        "in": "header",
+                        "description": "Send a value of 'max-age=0' to ignore the cache and retrieve data from the service",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "tabId",
                         "in": "query",
                         "description": "Sheet TabId e.g. Sheet1",
