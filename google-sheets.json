@@ -29,6 +29,145 @@
         }
     ],
     "paths": {
+        "/row/{rownumber}": {
+            "get": {
+                "summary": "Get Single Row",
+                "description": "Get Single Row by Row Number",
+                "parameters": [
+                    {
+                        "name": "Cache-Control",
+                        "in": "header",
+                        "description": "Send a value of 'max-age=0' to ignore the cache and retrieve data from the service",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tabId",
+                        "in": "query",
+                        "description": "Sheet TabId e.g. Sheet1",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rownumber",
+                        "in": "path",
+                        "description": "Row Nunmber",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {}
+                    },
+                    "default": {
+                        "description": "error",
+                        "content": {}
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Single Row",
+                "description": "Update Single Row by Row Number",
+                "parameters": [
+                    {
+                        "name": "Cache-Control",
+                        "in": "header",
+                        "description": "Send a value of 'max-age=0' to ignore the cache and retrieve data from the service",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tabId",
+                        "in": "query",
+                        "description": "Sheet TabId e.g. Sheet1",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rownumber",
+                        "in": "path",
+                        "description": "Row Nunmber",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "Row data",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "OK",
+                        "content": {}
+                    },
+                    "default": {
+                        "description": "error",
+                        "content": {}
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Single Row",
+                "description": "Delete Single Row by Row Number",
+                "parameters": [
+                    {
+                        "name": "Cache-Control",
+                        "in": "header",
+                        "description": "Send a value of 'max-age=0' to ignore the cache and retrieve data from the service",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tabId",
+                        "in": "query",
+                        "description": "Sheet TabId e.g. Sheet1",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rownumber",
+                        "in": "path",
+                        "description": "Row Nunmber",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "203": {
+                        "description": "OK",
+                        "content": {}
+                    },
+                    "default": {
+                        "description": "error",
+                        "content": {}
+                    }
+                }
+            }
+        },
         "/rows": {
             "get": {
                 "summary": "Get Rows",
