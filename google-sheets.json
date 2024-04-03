@@ -64,11 +64,23 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content": {}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "default": {
                         "description": "error",
-                        "content": {}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -117,11 +129,23 @@
                 "responses": {
                     "201": {
                         "description": "OK",
-                        "content": {}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "default": {
                         "description": "error",
-                        "content": {}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -159,11 +183,23 @@
                 "responses": {
                     "203": {
                         "description": "OK",
-                        "content": {}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "default": {
                         "description": "error",
-                        "content": {}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -193,7 +229,7 @@
                     {
                         "name": "limit",
                         "in": "query",
-                        "description": "Max number of rows to fetch",
+                        "description": "Number of rows to fetch - max 1000, default 1000",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -212,11 +248,23 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "content": {}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "default": {
                         "description": "error",
-                        "content": {}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -248,11 +296,23 @@
                 "responses": {
                     "201": {
                         "description": "OK",
-                        "content": {}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "default": {
                         "description": "error",
-                        "content": {}
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
