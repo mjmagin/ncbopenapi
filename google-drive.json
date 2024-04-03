@@ -1,0 +1,32 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Google Drive",
+        "summary": "Google Drive",
+        "termsOfService": "terms of service description",
+        "description": "Google Drive API description tbd ",
+        "version": "1.0"
+    },
+    "x-blocklet-description": "Google Drive API description tbd",
+    "externalDocs": {
+        "description": "Google Drive Documentation",
+        "url": ""
+    },
+    "servers": [
+        {
+            "url": "tobeaddedatconfiguration"
+        }
+    ],
+    "security": [
+        {
+            "accountApiKey": []
+        },
+        {
+            "collectionApiKey": []
+        },
+        {
+            "AuthorizationToken": []
+        }
+    ],
+    "paths": {}
+}
