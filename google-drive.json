@@ -58,5 +58,29 @@
                 }
             }
         }
+    },
+    "components": {
+        "securitySchemes": {
+            "accountApiKey": {
+                "type": "apiKey",
+                "name": "x-api-key",
+                "description": "(Required) Blocklet Account API Key",
+                "in": "header",
+                "required": true
+            },
+            "collectionApiKey": {
+                "type": "apiKey",
+                "name": "x-collection-key",
+                "description": "(Optional) Only Required if Collection Account API Key has been configured",
+                "in": "header",
+                "required": false
+            },
+            "AuthorizationToken": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "(Optional) Only Required if authorising with an Bloclet Auth Bloc has been configured",
+                "required": false
+            }
+        }
     }
 }
