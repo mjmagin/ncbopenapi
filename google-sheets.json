@@ -243,15 +243,6 @@
                         "schema": {
                             "type": "string"
                         }
-                    },
-                    {
-                        "name": "filter",
-                        "in": "query",
-                        "description": "filter condition e.g. name = \"John\" or Age > 20",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
