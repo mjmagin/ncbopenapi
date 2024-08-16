@@ -1,0 +1,131 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "VAPI & Voiceflow",
+        "summary": "VAPI & Voiceflow",
+        "termsOfService": "terms of service description",
+        "description": "VAPI & Voiceflow Connector",
+        "version": "1.0"
+    },
+    "x-blocklet-description": "VAPI & Voiceflow Connector",
+    "externalDocs": {
+        "description": "VAPI & Voiceflow Documentation",
+        "url": ""
+    },
+    "servers": [
+        {
+            "url": "https://api.voiceflow.com"
+        }
+    ],
+    "security": [
+        {
+            "accountApiKey": []
+        },
+        {
+            "collectionApiKey": []
+        },
+        {
+            "AuthorizationToken": []
+        }
+    ],
+    "paths": {
+        "chat/completions": {
+            "post": {
+                "summary": "Chat Completion",
+                "description": "Chat Completion",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "messages": {
+                                        "type": "object",
+                                        "description": "messages object",
+                                        "properties": {
+                                            "role": {
+                                                "type": "string",
+                                                "description": "role"
+                                            },
+                                            "content": {
+                                                "type": "string",
+                                                "description": "content"
+                                            }
+                                        }
+                                    },
+                                    "call": {
+                                        "type": "object",
+                                        "description": "messages object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "call id"
+                                            },
+                                            "customer": {
+                                                "type": "object",
+                                                "description": "customer",
+                                                "properties": {
+                                                    "number": {
+                                                        "type": "string",
+                                                        "description": "number"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "accountApiKey": {
+                "type": "apiKey",
+                "name": "x-api-key",
+                "description": "(Required) Blocklet Account API Key",
+                "in": "header",
+                "required": true
+            },
+            "collectionApiKey": {
+                "type": "apiKey",
+                "name": "x-collection-key",
+                "description": "(Optional) Only Required if Collection Account API Key has been configured",
+                "in": "header",
+                "required": false
+            },
+            "AuthorizationToken": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "(Optional) Only Required if authorising with an Bloclet Auth Bloc has been configured",
+                "required": false
+            }
+        }
+    }
+}
