@@ -29,7 +29,7 @@
         }
     ],
     "paths": {
-        "chat/completions": {
+        "/chat/completions": {
             "post": {
                 "summary": "Chat Completion",
                 "description": "Chat Completion",
